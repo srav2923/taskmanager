@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Task Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mx-auto p-4">
+        <header class="text-center mb-6">
+            <h1 class="text-3xl font-semibold">Personal Task Tracker</h1>
+        </header>
+
+        <!-- Today's Summary -->
+        <section class="summary mb-6">
+            <h2 class="text-2xl">Today's Summary</h2>
+            <div class="grid grid-cols-3 gap-4">
+                <p>Total Tasks: <span id="total-tasks">0</span></p>
+                <p>Completed Tasks: <span id="completed-tasks">0</span></p>
+                <p>Pending Tasks: <span id="pending-tasks">0</span></p>
+            </div>
+        </section>
+
+        <!-- Task Form -->
+        <section class="task-form mb-6">
+            <button id="toggle-task-form" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add New Task</button>
+            <form id="task-form" class="mt-4 hidden">
+                <input type="text" id="task-name" placeholder="Task Name" class="p-2 border border-gray-300 rounded mb-2 w-full">
+                <select id="task-priority" class="p-2 border border-gray-300 rounded mb-2 w-full">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <button type="button" id="add-task" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 w-full">Add Task</button>
+            </form>
+        </section>
+
+        <!-- Task Filters -->
+        <section class="filters mb-6">
+            <h3 class="text-xl">Filter Tasks</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <select id="filter-status" class="p-2 border border-gray-300 rounded">
+                    <option value="All">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <select id="filter-priority" class="p-2 border border-gray-300 rounded">
+                    <option value="All">All Priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <section class="task-list">
+            <h2 class="text-2xl mb-4">Your Tasks</h2>
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                    <tr class="border-b">
+                        <th class="p-2 text-left">Task Name</th>
+                        <th class="p-2 text-left">Priority</th>
+                        <th class="p-2 text-left">Status</th>
+                        <th class="p-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="task-table-body"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
